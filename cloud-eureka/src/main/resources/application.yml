@@ -7,7 +7,17 @@ eureka:
     fetch-registry: false
     service-url:
       defaultZone: http://localhost:7900/eureka/,http://localhost:7901/eureka/,http://localhost:7902/eureka/
-
+  server:
+    # 自我保护，看服务多少。适合在开发/测试环境中使用，生产环境建议打开自我保护模式
+    enable-self-preservation: false
+    # 自我保护阈值
+    renewal-percent-threshold: 0.85
+    # 剔除服务时间间隔
+    eviction-interval-timer-in-ms: 5000
+    # 关闭从readOnly读注册表
+    use-read-only-response-cache: false
+    # readWrite 和 readOnly 同步时间间隔。提高服务被发现了的速度
+    response-cache-update-interval-ms: 3000
 ---
 spring:
   profiles: 7900

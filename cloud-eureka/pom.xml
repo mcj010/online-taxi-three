@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.mcj010</groupId>
     <artifactId>cloud-eureka</artifactId>
+
     <version>0.0.1-SNAPSHOT</version>
     <name>cloud-eureka</name>
     <description>Demo project for Spring Boot</description>
