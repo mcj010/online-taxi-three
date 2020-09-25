@@ -10,4 +10,10 @@
     <packaging>pom</packaging>
 
 
+    <modules>
+        <module>./api-passenge</module>
+        <module>./cloud-eureka</module>
+    </modules>
+
+
 </project>
