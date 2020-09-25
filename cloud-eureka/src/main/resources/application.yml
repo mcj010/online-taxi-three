@@ -3,13 +3,13 @@ spring:
     name: eureka
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
-      defaultZone: http://localhost:7900/eureka/,http://localhost:7901/eureka/,http://localhost:7902/eureka/
+      defaultZone: http://eurekaserver1:7900/eureka/,http://eurekaserver2:7901/eureka/,http://localhost:7902/eureka/
   server:
     # 自我保护，看服务多少。适合在开发/测试环境中使用，生产环境建议打开自我保护模式
-    enable-self-preservation: false
+    enable-self-preservation: true
     # 自我保护阈值
     renewal-percent-threshold: 0.85
     # 剔除服务时间间隔
@@ -25,7 +25,7 @@ server:
   port: 7900
 eureka:
   instance:
-    hostname: eureka-7900
+    hostname: eurekaserver1
 
 ---
 spring:
@@ -34,7 +34,7 @@ server:
   port: 7901
 eureka:
   instance:
-    hostname: eureka-7901
+    hostname: eurekaserver2
 
 ---
 spring:
