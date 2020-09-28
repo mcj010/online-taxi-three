@@ -1,0 +1,17 @@
+server:
+  port: 9100
+spring:
+  application:
+    name: online-taxi-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1:7900/eureka/
+  instance:
+    hostname: localhost
+    instance-id: online-taxi-zuul
+#zuul:
+      ##  routes:
+      ##    api-a:
+    ##      path: /Client/**
+    ##      url: ServerClient
