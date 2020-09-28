@@ -1,0 +1,10 @@
+server:
+  port: 8012
+eureka:
+  client:
+    enabled: false
+  service-url:
+    defaultZone: http://localhost:7900/eureka/
+spring:
+  application:
+    name: service-verification-code
