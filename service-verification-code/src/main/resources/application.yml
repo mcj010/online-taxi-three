@@ -2,9 +2,9 @@ server:
   port: 8012
 eureka:
   client:
-    enabled: false
-  service-url:
-    defaultZone: http://localhost:7900/eureka/
+    enabled: true
+    service-url:
+      defaultZone: http://eurekaserver1:7900/eureka/
 spring:
   application:
     name: service-verification-code

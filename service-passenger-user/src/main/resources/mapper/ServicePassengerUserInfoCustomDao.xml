@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mcj010.servicepassengeruser.dao.ServicePassengerUserInfoCustomDao">
+  <select id="selectByPhoneNumber" resultMap="com.mcj010.servicepassengeruser.dao.ServicePassengerUserInfoDao.BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="com.mcj010.servicepassengeruser.dao.ServicePassengerUserInfoDao.Base_Column_List" />
+    from passenger_user_info
+    where passenger_phone = #{passengerPhone}
+  </select>
+</mapper>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mcj010.servicesms.dao.ServiceSmsRecordDao">
+  <resultMap id="BaseResultMap" type="com.mcj010.servicesms.entity.ServiceSmsRecord">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="sms_content" jdbcType="VARCHAR" property="smsContent" />
+    <result column="send_time" jdbcType="TIMESTAMP" property="sendTime" />
+    <result column="operator_name" jdbcType="VARCHAR" property="operatorName" />
+    <result column="send_flag" jdbcType="INTEGER" property="sendFlag" />
+    <result column="send_number" jdbcType="INTEGER" property="sendNumber" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, phone_number, sms_content, send_time, operator_name, send_flag, send_number, 
+    create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from service_sms_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from service_sms_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mcj010.servicesms.entity.ServiceSmsRecord" useGeneratedKeys="true">
+    insert into service_sms_record (phone_number, sms_content, send_time, 
+      operator_name, send_flag, send_number, 
+      create_time, update_time)
+    values (#{phoneNumber,jdbcType=VARCHAR}, #{smsContent,jdbcType=VARCHAR}, #{sendTime,jdbcType=TIMESTAMP}, 
+      #{operatorName,jdbcType=VARCHAR}, #{sendFlag,jdbcType=INTEGER}, #{sendNumber,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mcj010.servicesms.entity.ServiceSmsRecord" useGeneratedKeys="true">
+    insert into service_sms_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="phoneNumber != null">
+        phone_number,
+      </if>
+      <if test="smsContent != null">
+        sms_content,
+      </if>
+      <if test="sendTime != null">
+        send_time,
+      </if>
+      <if test="operatorName != null">
+        operator_name,
+      </if>
+      <if test="sendFlag != null">
+        send_flag,
+      </if>
+      <if test="sendNumber != null">
+        send_number,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="phoneNumber != null">
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="smsContent != null">
+        #{smsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorName != null">
+        #{operatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="sendFlag != null">
+        #{sendFlag,jdbcType=INTEGER},
+      </if>
+      <if test="sendNumber != null">
+        #{sendNumber,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mcj010.servicesms.entity.ServiceSmsRecord">
+    update service_sms_record
+    <set>
+      <if test="phoneNumber != null">
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="smsContent != null">
+        sms_content = #{smsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        send_time = #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorName != null">
+        operator_name = #{operatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="sendFlag != null">
+        send_flag = #{sendFlag,jdbcType=INTEGER},
+      </if>
+      <if test="sendNumber != null">
+        send_number = #{sendNumber,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mcj010.servicesms.entity.ServiceSmsRecord">
+    update service_sms_record
+    set phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      sms_content = #{smsContent,jdbcType=VARCHAR},
+      send_time = #{sendTime,jdbcType=TIMESTAMP},
+      operator_name = #{operatorName,jdbcType=VARCHAR},
+      send_flag = #{sendFlag,jdbcType=INTEGER},
+      send_number = #{sendNumber,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

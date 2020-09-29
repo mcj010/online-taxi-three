@@ -42,6 +42,5 @@ public class VerifyCodeController {
         String code = request.getCode();
 
         return verifyCodeService.verify(identity, phoneNumber, code);
-
     }
 }

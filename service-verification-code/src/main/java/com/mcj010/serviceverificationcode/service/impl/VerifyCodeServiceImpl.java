@@ -51,7 +51,7 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
 //        if (aBoolean){
 //            codeRedis.expire(2,TimeUnit.MINUTES);
 //        }
-        codeRedis.set(code, 2, TimeUnit.MINUTES);
+        codeRedis.set(code, 30, TimeUnit.MINUTES);
 //        codeRedis.expire(2,TimeUnit.MINUTES);
 
         //返回

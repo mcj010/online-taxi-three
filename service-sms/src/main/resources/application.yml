@@ -1,0 +1,43 @@
+server:
+  port: 8003
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://eurekaserver2:7901/eureka/
+spring:
+  application:
+    name: service-sms
+  datasource:
+    #配置当前使用的数据源的操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    #配置MySQL的驱动程序类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #数据库连接地址
+    url: jdbc:mysql://localhost:3306/online-taxi-three?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    #数据库连接用户名
+    username: root
+    #数据库连接密码
+    password: 123456
+    #进行数据库连接池的配置
+    dbcp2:
+      #初始化提供的连接数
+      initial-size: 5
+      #数据库连接池的最小维持连接数
+      min-idle: 5
+      #最大的连接数
+      max-total: 5
+      #等待连接获取的最大超时时间
+      max-wait-millis: 200
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+#mybatis配置
+mybatis:
+  table:
+    auto: true
+  mapper-locations:
+    - classpath:mapper/*.xml
+
+

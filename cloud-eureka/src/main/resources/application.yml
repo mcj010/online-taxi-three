@@ -6,7 +6,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eurekaserver1:7900/eureka/,http://eurekaserver2:7901/eureka/,http://localhost:7902/eureka/
+      defaultZone: http://eurekaserver1:7900/eureka/,http://eurekaserver2:7901/eureka/,http://eurekaserver3:7902/eureka/
   server:
     # 自我保护，看服务多少。适合在开发/测试环境中使用，生产环境建议打开自我保护模式
     enable-self-preservation: true
@@ -43,4 +43,4 @@ server:
   port: 7902
 eureka:
   instance:
-    hostname: eureka-7902
+    hostname: eurekaserver3
