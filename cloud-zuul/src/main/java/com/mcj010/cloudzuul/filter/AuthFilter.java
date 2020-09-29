@@ -7,6 +7,7 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import org.apache.commons.lang.StringUtils;
+import org.apache.http.protocol.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.data.redis.core.BoundValueOperations;
@@ -68,11 +69,14 @@ public class AuthFilter extends ZuulFilter {
 
                 BoundValueOperations<String, String> stringStringBoundValueOperations = redisTemplate.boundValueOps(RedisKeyPrefixConstant.PASSENGER_LOGIN_TOKEN_APP_KEY_PRE + tokenUserId);
                 String redisToken = stringStringBoundValueOperations.get();
-//                if (redisToken.equals(token)){
-//
-//
-//                    return null;
-//                }
+
+                if (redisToken.equals(token)){
+                    requestContext.setSendZuulResponse(true);
+                    requestContext.setResponseStatusCode(HttpStatus.OK.value());
+                    requestContext.set("isSuccess", true);
+
+                    return null;
+                }
             }
         }
 
