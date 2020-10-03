@@ -1,5 +1,21 @@
+spring:
+  profiles: v1
 server:
   port: 8003
+eureka:
+  instance:
+    metadata-map:
+      version: v1
+---
+spring:
+  profiles: v3
+server:
+  port: 8004
+eureka:
+  instance:
+    metadata-map:
+      version: v3
+---
 eureka:
   client:
     enabled: true
@@ -8,6 +24,7 @@ eureka:
 spring:
   application:
     name: service-sms
+#  profiles: v1
   datasource:
     #配置当前使用的数据源的操作类型
     type: com.alibaba.druid.pool.DruidDataSource
