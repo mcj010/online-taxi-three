@@ -10,8 +10,12 @@ eureka:
   instance:
     hostname: localhost
     instance-id: online-taxi-zuul
-#zuul:
-      ##  routes:
-      ##    api-a:
-    ##      path: /Client/**
-    ##      url: ServerClient
+
+zuul:
+  routes:
+    #此处名字随便取
+    custom-zuul-name:
+      path: /zuul-custom-name/**
+      service-id: service-sms
+  #以下配置为空表示：所有请求头都透传到后面微服务。
+  sensitive-headers:
