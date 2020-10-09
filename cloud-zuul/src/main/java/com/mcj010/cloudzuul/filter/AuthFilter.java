@@ -105,7 +105,7 @@ public class AuthFilter extends ZuulFilter {
     @Override
     public int filterOrder() {
         // TODO Auto-generated method stub
-        return -1;
+        return 3;
     }
 
 
