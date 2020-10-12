@@ -43,7 +43,7 @@ public class AuthFilter extends ZuulFilter {
 //			return true;
 //		}
 
-        return true;
+        return false;
     }
 
     /**
@@ -105,7 +105,7 @@ public class AuthFilter extends ZuulFilter {
     @Override
     public int filterOrder() {
         // TODO Auto-generated method stub
-        return 3;
+        return 0;
     }
 
 
