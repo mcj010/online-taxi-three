@@ -11,3 +11,8 @@ spring:
 logging:
   level:
     root: info
+devtools:
+  livereload:
+    enabled: true #是否支持livereload
+  restart:
+    enabled: true #是否支持热部署

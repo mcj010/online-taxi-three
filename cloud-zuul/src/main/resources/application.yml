@@ -19,3 +19,19 @@ zuul:
       service-id: service-sms
   #以下配置为空表示：所有请求头都透传到后面微服务。
   sensitive-headers:
+logging:
+  level:
+    root: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      ##默认是never
+      show-details: ALWAYS
+      enabled: true
+    routes:
+      enabled: true
