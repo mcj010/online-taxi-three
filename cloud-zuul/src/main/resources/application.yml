@@ -21,7 +21,7 @@ zuul:
   sensitive-headers:
 logging:
   level:
-    root: DEBUG
+    root: INFO
 
 management:
   endpoints:
